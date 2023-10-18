@@ -69,3 +69,39 @@ input[type="submit"]:hover {
     font-weight: bold;
     color: orange;
 }
+/* ... Your existing CSS ... */
+
+/* Add this for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#best-fit, #close-fit {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Add this for tooltips */
+.tooltip {
+  display: inline;
+  position: relative;
+  cursor: help;
+}
+
+.tooltip:hover:after {
+  content: attr(title);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: orange;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+}
