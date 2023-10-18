@@ -1,23 +1,20 @@
-
 /* General styling for the calculator */
 #calculator-content {
-    width: 100%;  /* Add this line */
-    height: auto;  /* Add this line */
+    width: 100%;
+    height: auto;
     background-image: url('cotte background.jpg');
     background-size: cover;
-    background-repeat: no-repeat;  /* Add this line */
+    background-repeat: no-repeat;
     background-position: center;
-    background-color: white; /* Set background to white */
-    color: black;  /* Set text color to black */
+    background-color: white;
+    color: black;
 }
-/* Existing styles here... */
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
-
 
 /* Styling for the product image */
 #product-image img {
@@ -28,15 +25,14 @@
 /* Styling for the form */
 #size-form {
     margin-top: 20px;
-    font-family: 'Arial', sans-serif; /* Change font to Arial */
+    font-family: 'Arial', sans-serif;
 }
 
 label {
     font-weight: bold;
     margin-right: 10px;
-    color: orange;  /* Set label color to orange */
+    color: orange;
 }
-
 
 input[type="number"],
 select {
@@ -47,26 +43,20 @@ select {
 }
 
 input[type="submit"] {
-    background-color: #007bff;
+    background-color: orange;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
 }
 
-input[type="submit"] {
-    background-color: orange;  /* Set button background to orange */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
 input[type="submit"]:hover {
-    background-color: darkorange;  /* Darker orange on hover */
+    background-color: darkorange;
+}
+
 /* Styling for the size recommendation */
-    
 #size-recommendation h2 {
-    color: orange;  /* Set color to orange */
+    color: orange;
 }
 
 #size-recommendation {
