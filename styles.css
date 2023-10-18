@@ -3,7 +3,7 @@
 #calculator-content {
     width: 100%;  /* Add this line */
     height: auto;  /* Add this line */
-    background-image: url('cotte_background.jpg');
+    background-image: url('cotte background.jpg');
     background-size: cover;
     background-repeat: no-repeat;  /* Add this line */
     background-position: center;
