@@ -8,6 +8,14 @@
     background-repeat: no-repeat;  /* Add this line */
     background-position: center;
 }
+/* Existing styles here... */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 
 /* Styling for the product image */
 #product-image img {
