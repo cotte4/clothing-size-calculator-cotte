@@ -6,6 +6,9 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url('cotte background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Styling for the product image */
