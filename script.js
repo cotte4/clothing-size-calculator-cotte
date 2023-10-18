@@ -8,63 +8,60 @@ document.getElementById("size-form").addEventListener("submit", function(event) 
     const bodyType = document.getElementById("body-type").value;
     const fitPreference = document.getElementById("fit-preference").value;
 
+    // Initialize variables for points
+    let heightPoints = 0;
+    let weightPoints = 0;
+    let fitPreferencePoints = 0;
+    let bodyTypeAdjustment = 0;
+
+    // Assign points based on height
+    if (height < 160) heightPoints = 1;
+    else if (height < 170) heightPoints = 2;
+    else if (height < 180) heightPoints = 3;
+    else if (height < 190) heightPoints = 4;
+    else heightPoints = 5;
+
+    // Assign points based on weight
+    if (weight < 50) weightPoints = 1;
+    else if (weight < 60) weightPoints = 2;
+    else if (weight < 70) weightPoints = 3;
+    else if (weight < 80) weightPoints = 4;
+    else weightPoints = 5;
+
+    // Assign points based on fit preference
+    if (fitPreference === "very-tight") fitPreferencePoints = 1;
+    else if (fitPreference === "tight") fitPreferencePoints = 2;
+    else if (fitPreference === "average") fitPreferencePoints = 3;
+    else if (fitPreference === "loose") fitPreferencePoints = 4;
+    else if (fitPreference === "very-loose") fitPreferencePoints = 5;
+
+    // Adjust points based on body type
+    if (bodyType === "flatter") bodyTypeAdjustment = -1;
+    else if (bodyType === "rounder") bodyTypeAdjustment = 1;
+
+    // Calculate average points
+    const averagePoints = (heightPoints + weightPoints + fitPreferencePoints + bodyTypeAdjustment) / 3;
+
     // Initialize variables for best fit and close fit
     let bestFit = "";
     let closeFit = "";
 
-    // Check if essential fields are filled
-    if (!height || !weight || !fitPreference) {
-        document.getElementById("best-fit").innerText = "Necesito toda la información para ofrecerte la recomendación más precisa.";
-        return;
-    }
-
-    // Primary basis: Height and Weight
-    if (height <= 150 && weight <= 50) {
+    // Assign sizes based on average points
+    if (averagePoints < 1.5) {
         bestFit = "XS";
         closeFit = "S";
-    } else if ((height > 150 && height <= 160) && (weight > 50 && weight <= 60)) {
+    } else if (averagePoints < 2.5) {
         bestFit = "S";
         closeFit = "M";
-    } else if ((height > 160 && height <= 175) && (weight > 60 && weight <= 75)) {
+    } else if (averagePoints < 3.5) {
         bestFit = "M";
         closeFit = "L";
-    } else if ((height > 175 && height <= 190) && (weight > 75 && weight <= 90)) {
+    } else if (averagePoints < 4.5) {
         bestFit = "L";
         closeFit = "XL";
     } else {
         bestFit = "XL";
-        closeFit = "XL";
-    }
-
-    // Adjust based on fit preference
-    switch (fitPreference) {
-        case "tight":
-            if (bestFit !== "XS") {
-                closeFit = bestFit;
-                bestFit = getPreviousSize(bestFit);
-            }
-            break;
-        case "loose":
-            if (bestFit !== "XL") {
-                closeFit = getNextSize(bestFit);
-            }
-            break;
-    }
-
-    // Fine-tuning based on body type
-    if (bodyType === "rounder" && closeFit !== "XL") {
-        closeFit = getNextSize(bestFit);
-    }
-
-    // Helper functions
-    function getNextSize(size) {
-        const sizes = ["XS", "S", "M", "L", "XL"];
-        return sizes[sizes.indexOf(size) + 1];
-    }
-
-    function getPreviousSize(size) {
-        const sizes = ["XS", "S", "M", "L", "XL"];
-        return sizes[sizes.indexOf(size) - 1];
+        closeFit = "XXL";  // Assuming you also have XXL
     }
 
     // Update the size recommendation in the HTML
