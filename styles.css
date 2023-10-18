@@ -7,6 +7,8 @@
     background-size: cover;
     background-repeat: no-repeat;  /* Add this line */
     background-position: center;
+    background-color: white; /* Set background to white */
+    color: black;  /* Set text color to black */
 }
 /* Existing styles here... */
 
@@ -26,13 +28,15 @@
 /* Styling for the form */
 #size-form {
     margin-top: 20px;
+    font-family: 'Arial', sans-serif; /* Change font to Arial */
 }
 
 label {
     font-weight: bold;
     margin-right: 10px;
-    color: orange;
+    color: orange;  /* Set label color to orange */
 }
+
 
 input[type="number"],
 select {
@@ -50,10 +54,15 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
-    background-color: #0056b3;
+input[type="submit"] {
+    background-color: orange;  /* Set button background to orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
-
+input[type="submit"]:hover {
+    background-color: darkorange;  /* Darker orange on hover */
 /* Styling for the size recommendation */
 #size-recommendation {
     margin-top: 40px;
