@@ -9,6 +9,7 @@
     background-image: url('cotte background.jpg');
     background-size: cover;
     background-position: center;
+    overflow: auto;
 }
 
 /* Styling for the product image */
@@ -57,4 +58,5 @@ input[type="submit"]:hover {
 #close-fit {
     font-size: 18px;
     font-weight: bold;
+    color: orange;
 }
