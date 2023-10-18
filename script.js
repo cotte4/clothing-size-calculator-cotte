@@ -1,4 +1,3 @@
-
 // Event listener for form submission
 document.getElementById("size-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -10,18 +9,19 @@ document.getElementById("size-form").addEventListener("submit", function(event) 
     const age = parseInt(document.getElementById("age").value);
     const fitPreference = document.getElementById("fit-preference").value;
 
-    // Placeholder logic for size recommendation (to be replaced with real logic)
-    let bestFit = "M";  // Medium as default best fit
-    let closeFit = "L"; // Large as default close fit
+    // Initialize variables for best fit and close fit
+    let bestFit = "";
+    let closeFit = "";
 
-    // Example logic for size recommendation based on height and weight
-    if (height < 160 && weight < 60) {
-        bestFit = "S";
-        closeFit = "M";
-    } else if (height >= 160 && height < 180 && weight >= 60 && weight < 80) {
+    // Enhanced logic for size recommendation based on multiple criteria
+    if (height < 160 && weight < 60 && age < 30 && bodyType === "flatter" && fitPreference === "tight") {
+        bestFit = "XS";
+        closeFit = "S";
+    } else if (height >= 160 && height < 180 && weight >= 60 && weight < 80 && age >= 30 && age < 50 && bodyType === "average" && fitPreference === "average") {
         bestFit = "M";
         closeFit = "L";
     } else {
+        // Default or catch-all condition
         bestFit = "L";
         closeFit = "XL";
     }
