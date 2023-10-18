@@ -64,6 +64,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: darkorange;  /* Darker orange on hover */
 /* Styling for the size recommendation */
+    
+#size-recommendation h2 {
+    color: orange;  /* Set color to orange */
+}
+
 #size-recommendation {
     margin-top: 40px;
 }
